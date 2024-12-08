@@ -1,0 +1,29 @@
+{
+  "name": "apiautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cyrun:headed": "cypress run --browser electron --headed",
+    "cyrun:headless": "cypress run",
+    "cyrun:chrome": "cypress run --browser chrome --headed --spec 'cypress/cucumber-test/features/*.feature'"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^12.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "cypress": "^10.4.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/cucumber-test/**/*.js",
+    "nonGlobalStepDefinitions": true,
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  }
+}
